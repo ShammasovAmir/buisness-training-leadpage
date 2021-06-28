@@ -1,0 +1,11 @@
+// Variables
+@use './abstracts/variables' as *;
+
+// Custom CSS
+@use './layout/layout' as *;
+
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Bootstrap Icons
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
