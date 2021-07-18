@@ -59,11 +59,22 @@ group.add(sphere)
 scene.add(group)
 
 // Camera z offset
-let cameraPositionZ
+const setPositionZ = () => {
+  let cameraPositionZ
+  innerWidth < 1002 ? (cameraPositionZ = 20) : (cameraPositionZ = 15)
+  camera.position.z = cameraPositionZ
+}
 
-innerWidth < 1002 ? (cameraPositionZ = 20) : (cameraPositionZ = 15)
+setPositionZ()
 
-camera.position.z = cameraPositionZ
+addEventListener('resize', () => {
+  const width = canvasContainer.offsetWidth
+  const height = canvasContainer.offsetHeight
+  renderer.setSize(width, height)
+  camera.aspect = width / height
+  setPositionZ()
+  camera.updateProjectionMatrix()
+})
 
 const mouse = {
   x: undefined,
